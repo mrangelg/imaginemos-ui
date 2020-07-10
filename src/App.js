@@ -1,13 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import Home from "./pages/Home";
 import "normalize.css";
 
 const App = () => {
   return (
     <div>
-      <h1>Hello world!</h1>
+      <Home />
     </div>
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+export default App;
