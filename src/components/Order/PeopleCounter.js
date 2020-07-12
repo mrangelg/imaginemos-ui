@@ -47,15 +47,19 @@ const CheckoutLink = styled.a`
   right: 0;
 `;
 
-function PeopleCounter() {
+function PeopleCounter({ peopleQuantity, handleDecrease, handleIncrease }) {
   return (
     <Container>
       <CounterSection>
         <span>Persons</span>
         <CounterButton>
-          <Button type="button">-</Button>
-          12
-          <Button type="button">+</Button>
+          <Button type="button" onClick={handleDecrease}>
+            -
+          </Button>
+          {peopleQuantity}
+          <Button type="button" onClick={handleIncrease}>
+            +
+          </Button>
         </CounterButton>
       </CounterSection>
       <CheckoutLink>

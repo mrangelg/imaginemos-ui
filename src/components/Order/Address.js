@@ -29,7 +29,7 @@ const Link = styled.a`
   }
 `;
 
-const Icon = styled(ClockIcon)`
+const StyledClockIcon = styled(ClockIcon)`
   width: 1.3rem;
   border-radius: 25%;
   padding: 0.625rem;
@@ -38,7 +38,7 @@ const Icon = styled(ClockIcon)`
   background-color: #65479b;
 `;
 
-function AddressOrder() {
+function Address() {
   return (
     <Container>
       <RowContainer>
@@ -47,7 +47,7 @@ function AddressOrder() {
       </RowContainer>
       <RowContainer>
         <div>
-          <Icon />
+          <StyledClockIcon />
           <span>35 min</span>
         </div>
         <Link>Choose time</Link>
@@ -56,4 +56,4 @@ function AddressOrder() {
   );
 }
 
-export default AddressOrder;
+export default Address;

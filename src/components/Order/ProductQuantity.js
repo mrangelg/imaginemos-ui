@@ -7,7 +7,7 @@ const ContainerDisplay = styled.div`
   justify-content: flex-end;
 `;
 
-const PeopleQuantity = styled.div`
+const ItemAmount = styled.div`
   background-color: #ffd644;
   border-radius: 0.3125rem;
   padding: 0.3125rem 0.625rem;
@@ -15,13 +15,12 @@ const PeopleQuantity = styled.div`
   margin-left: 1.25rem;
 `;
 
-function DisplayQuantityPeople() {
+function ProductQuantity({ productQuantity }) {
   return (
     <ContainerDisplay>
       <UserIcon width="20px" />
-      <PeopleQuantity>3</PeopleQuantity>
+      <ItemAmount>{productQuantity}</ItemAmount>
     </ContainerDisplay>
   );
 }
-
-export default DisplayQuantityPeople;
+export default ProductQuantity;
