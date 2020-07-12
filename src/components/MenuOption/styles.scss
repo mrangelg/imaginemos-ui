@@ -1,0 +1,19 @@
+.collapsed {
+  height: 0;
+  transition-property: height;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  @media (min-width: 1280px) {
+    height: auto;
+  }
+}
+
+.expanded {
+  height: 3.125rem;
+  transition-property: height;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+  @media (min-width: 1280px) {
+    height: auto;
+  }
+}
