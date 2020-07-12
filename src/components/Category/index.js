@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import jsonData from "./categories.json";
 
 const Container = styled.div`
   display: flex;
@@ -9,9 +8,11 @@ const Container = styled.div`
 const CategoryCard = styled.div`
   display: flex;
   flex-direction: column;
-  &:hover {
+  &:hover,
+  &.active {
     > div {
       background-color: #ffd644;
+      cursor: pointer;
     }
   }
 `;
@@ -45,21 +46,43 @@ const Image = styled.img`
   background-color: white;
 `;
 
-function Category() {
-  const [categories] = useState(jsonData);
+function Category({ activeFilter, handleActiveFilter }) {
+  const [categories, setCategories] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/categories.json")
+      .then(res => res.json())
+      .then(data => {
+        setCategories(data);
+        setIsLoading(false);
+      })
+      .catch(console.log);
+  }, []);
+
   return (
-    <Container>
-      {categories.map(category => (
-        <CategoryCard key={category.id}>
-          <CategoryImage>
-            <Image src={category.icon} alt={category.name} />
-          </CategoryImage>
-          <CategoryName>
-            <span>{category.name}</span>
-          </CategoryName>
-        </CategoryCard>
-      ))}
-    </Container>
+    <>
+      {isLoading ? (
+        <h2>Loading ... </h2>
+      ) : (
+        <Container>
+          {categories.map(category => (
+            <CategoryCard
+              key={category.id}
+              className={activeFilter === category.name ? "active" : ""}
+              onClick={() => handleActiveFilter(category.name)}
+            >
+              <CategoryImage>
+                <Image src={category.icon} alt={category.name} />
+              </CategoryImage>
+              <CategoryName>
+                <span>{category.name}</span>
+              </CategoryName>
+            </CategoryCard>
+          ))}
+        </Container>
+      )}
+    </>
   );
 }
 

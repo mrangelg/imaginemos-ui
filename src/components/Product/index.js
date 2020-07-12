@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import StarIcon from "./../../assets/icons/star.svg";
-import jsonData from "./products.json";
 
 const Container = styled.div`
   display: flex;
@@ -62,8 +61,7 @@ const ProductName = styled.span`
   margin: 0.3125rem 0;
 `;
 
-function Product() {
-  const [products] = useState(jsonData);
+function Product({ products }) {
   return (
     <Container>
       {products.map(product => (

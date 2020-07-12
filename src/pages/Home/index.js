@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {
   Announcement,
@@ -64,31 +64,69 @@ const UserName = styled.div`
 `;
 
 function Home() {
+  const [productList, setProductList] = useState();
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [filteredProducts, setfilteredProducts] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/products.json")
+      .then(res => res.json())
+      .then(data => {
+        setProductList(data);
+        setfilteredProducts(data);
+        setIsLoading(false);
+      })
+      .catch(console.log);
+  }, []);
+
+  const handleActiveFilter = filter => {
+    let filteredProductList;
+    if (filter === "All") {
+      filteredProductList = productList;
+    } else {
+      filteredProductList = productList.filter(product =>
+        product.categories.includes(filter)
+      );
+    }
+    setActiveFilter(filter);
+    setfilteredProducts(filteredProductList);
+  };
+
   return (
-    <Container>
-      <MainContent>
-        <TopMainContent>
-          <MenuOption />
-          <UserName>Chukwudi</UserName>
-          <Search />
-        </TopMainContent>
-        <Announcement />
-        <CategorySection>
-          <TopCategory>
-            <div>
-              <Title>Restaurants</Title>
-              <HamburgerIcon width="15px" />
-            </div>
-            <DeliveryButton />
-          </TopCategory>
-          <Category />
-        </CategorySection>
-        <Product />
-      </MainContent>
-      <Sidebar>
-        <Order />
-      </Sidebar>
-    </Container>
+    <>
+      {isLoading ? (
+        <h2>Loading ... </h2>
+      ) : (
+        <Container>
+          <MainContent>
+            <TopMainContent>
+              <MenuOption />
+              <UserName>Chukwudi</UserName>
+              <Search />
+            </TopMainContent>
+            <Announcement />
+            <CategorySection>
+              <TopCategory>
+                <div>
+                  <Title>Restaurants</Title>
+                  <HamburgerIcon width="15px" />
+                </div>
+                <DeliveryButton />
+              </TopCategory>
+              <Category
+                activeFilter={activeFilter}
+                handleActiveFilter={handleActiveFilter}
+              />
+            </CategorySection>
+            <Product products={filteredProducts} />
+          </MainContent>
+          <Sidebar>
+            <Order />
+          </Sidebar>
+        </Container>
+      )}
+    </>
   );
 }
 
