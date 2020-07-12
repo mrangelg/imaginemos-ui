@@ -10,7 +10,11 @@ const Button = styled.button`
   color: #fff;
   border-radius: 1.25rem;
   &:hover {
+    cursor: pointer;
     background-color: #f05111;
+  }
+  &:active {
+    background-color: #ff6223;
   }
 `;
 
