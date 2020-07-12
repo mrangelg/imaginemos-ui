@@ -59,7 +59,7 @@ function PeopleCounter() {
         </CounterButton>
       </CounterSection>
       <CheckoutLink>
-        Chekout <RightArrowIcon width="0.7rem" />
+        Chekout <RightArrowIcon width="14px" />
       </CheckoutLink>
     </Container>
   );

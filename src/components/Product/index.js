@@ -75,7 +75,7 @@ function Product() {
           <ProductName>{product.name}</ProductName>
           <Details>
             <span>
-              <StarIcon width="0.8rem" /> {product.qualification}
+              <StarIcon width="12px" /> {product.qualification}
             </span>
             <span>${product.price}</span>
           </Details>

@@ -83,7 +83,7 @@ function Announcement() {
         <Description>$0 delivery for orders over $10 for 30 days</Description>
       </AnnouncementText>
       <MoreInformation>
-        Learn more <RightArrowIcon width="0.625rem" />
+        Learn more <RightArrowIcon width="10px" />
       </MoreInformation>
     </Container>
   );

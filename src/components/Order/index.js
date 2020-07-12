@@ -19,7 +19,7 @@ function Order() {
       <DisplayQuantityPeople />
       <h2>
         My
-        <span role="img" aria-label="Emoji smiley face">
+        <span role="img" aria-label="Smiley Face Emoji">
           😎
         </span>
         <br />

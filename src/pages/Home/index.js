@@ -77,7 +77,7 @@ function Home() {
           <TopCategory>
             <div>
               <Title>Restaurants</Title>
-              <HamburgerIcon width="0.9375rem" />
+              <HamburgerIcon width="15px" />
             </div>
             <DeliveryButton />
           </TopCategory>

@@ -18,7 +18,7 @@ const PeopleQuantity = styled.div`
 function DisplayQuantityPeople() {
   return (
     <ContainerDisplay>
-      <UserIcon width="1.25rem" />
+      <UserIcon width="20px" />
       <PeopleQuantity>3</PeopleQuantity>
     </ContainerDisplay>
   );

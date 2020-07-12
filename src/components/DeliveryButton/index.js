@@ -21,7 +21,7 @@ const Button = styled.button`
 function DeliveryButton() {
   return (
     <Button type="button">
-      <Clock width="0.75rem" /> Delivery: Now
+      <Clock width="12px" /> Delivery: Now
     </Button>
   );
 }
