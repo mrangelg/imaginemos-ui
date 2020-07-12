@@ -1,39 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import jsonData from "./order.json";
+import DisplayQuantityPeople from "./DisplayQuantityPeople";
+import AddressOrder from "./AddressOrder";
+import FoodOrder from "./FoodOrder";
+import PeopleCounter from "./PeopleCounter";
 
-const Container = styled.div`
+const Container = styled.section`
   display: flex;
-  flex-direction: column;
-`;
-
-const ContanierItemOrder = styled.div`
-  display: flex;
-  margin: 0.3125rem;
-`;
-
-const Image = styled.img`
-  width: 4.375rem;
-  border-radius: 0.3125rem;
-`;
-
-const Detail = styled.span`
-  margin: 0.1875rem;
-  font-size: 0.75rem;
+  flex-flow: column wrap;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2.1875rem;
 `;
 
 function Order() {
-  const [order] = useState(jsonData);
   return (
     <Container>
-      {order.map(ItemOrder => (
-        <ContanierItemOrder key={ItemOrder.id}>
-          <Image src={ItemOrder.image} alt={ItemOrder.name} />
-          <Detail>{ItemOrder.quantity}</Detail>
-          <Detail>{ItemOrder.name}</Detail>
-          <Detail>${ItemOrder.price}</Detail>
-        </ContanierItemOrder>
-      ))}
+      <DisplayQuantityPeople />
+      <h2>
+        My
+        <span role="img" aria-label="Emoji smiley face">
+          😎
+        </span>
+        <br />
+        Order
+      </h2>
+      <AddressOrder />
+      <FoodOrder />
+      <PeopleCounter />
     </Container>
   );
 }
