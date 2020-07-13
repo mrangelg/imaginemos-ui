@@ -1,12 +1,13 @@
 import React from "react";
-import Home from "./pages/Home";
 import "normalize.css";
+import UserProvider from "./provider";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
-    <div>
+    <UserProvider>
       <Home />
-    </div>
+    </UserProvider>
   );
 };
 
