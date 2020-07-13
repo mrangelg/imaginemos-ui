@@ -57,7 +57,7 @@ function Category({ activeFilter, handleActiveFilter }) {
         setCategories(data);
         setIsLoading(false);
       })
-      .catch(console.log);
+      .catch(error => error);
   }, []);
 
   return (

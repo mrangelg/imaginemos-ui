@@ -97,7 +97,7 @@ function Home() {
         setfilteredProducts(data);
         setIsLoading(false);
       })
-      .catch(console.log);
+      .catch(error => error);
   }, []);
 
   const handleActiveFilter = filter => {
