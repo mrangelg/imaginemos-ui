@@ -7,6 +7,7 @@ import RightArrowIcon from "./../../assets/icons/right-arrow.svg";
 const Container = styled.div`
   display: flex;
   flex-flow: row wrap;
+  width: 100%;
   justify-content: center;
   background-color: rgba(254, 247, 236, 1);
   border-radius: 1.25rem;

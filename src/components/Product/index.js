@@ -5,6 +5,7 @@ import StarIcon from "./../../assets/icons/star.svg";
 const Container = styled.div`
   display: flex;
   flex-flow: row wrap;
+  width: 100%;
 `;
 
 const ProductCard = styled.div`
@@ -12,12 +13,12 @@ const ProductCard = styled.div`
   flex-direction: column;
   margin: 0.6rem;
   font-size: 0.75rem;
-  width: 9.375rem;
-  @media (min-width: 960px) {
-    width: 10rem;
+  width: 100%;
+  @media (min-width: 600px) {
+    width: 20%;
   }
-  @media (min-width: 1280px) {
-    width: 15rem;
+  @media (min-width: 960px) {
+    width: 30%;
   }
 `;
 
@@ -30,13 +31,6 @@ const ContainerImage = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 5rem;
-  @media (min-width: 960px) {
-    height: 5.625rem;
-  }
-  @media (min-width: 1280px) {
-    height: 8.75rem;
-  }
   border-radius: 0.625rem;
 `;
 
