@@ -22,10 +22,14 @@ const MainContent = styled.section`
   display: flex;
   flex-flow: column wrap;
   box-sizing: border-box;
-  padding: 1.25rem 3.75rem;
+  padding: 1.25rem 1rem;
   width: 100%;
+  @media (min-width: 600px) {
+    padding: 1.25rem 2.5rem;
+  }
   @media (min-width: 960px) {
     width: 70%;
+    padding: 1.25rem 3.75rem;
   }
 `;
 

@@ -35,7 +35,7 @@ function ProductList({ peopleQuantity, products }) {
       {products.map(product => (
         <ContanierItemOrder key={product.id}>
           <Image src={product.image} alt={product.name} />
-          <ProductDetail>{product.quantity}</ProductDetail>
+          <ProductDetail>{product.quantity} x</ProductDetail>
           <ProductDetail>{product.name}</ProductDetail>
           <ProductDetail>${product.price * product.quantity}</ProductDetail>
         </ContanierItemOrder>
