@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import {
   Announcement,
   Category,
   DeliveryButton,
-  MenuOption,
   Order,
   Product,
   Search
 } from "./../../components";
 import HamburgerIcon from "./../../assets/icons/hamburger.svg";
+import googleLogo from "./../../assets/images/google-logo.png";
 import "./styles.scss";
+import { UserContext } from "./../../provider";
 
 const Container = styled.section`
   display: flex;
@@ -63,11 +64,30 @@ const UserName = styled.div`
   font-size: 0.875rem;
 `;
 
+const StyledButtonGoogleLogo = styled.button`
+  border: 0;
+  background-color: transparent;
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+`;
+
+const StyledImageGoogleLogo = styled.img`
+  width: 50px;
+  border-radius: 50%;
+  &:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+  }
+`;
+
 function Home() {
   const [productList, setProductList] = useState();
   const [activeFilter, setActiveFilter] = useState("All");
   const [filteredProducts, setfilteredProducts] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
+  const { user, handleUserSignIn } = useContext(UserContext);
 
   useEffect(() => {
     fetch("/api/products.json")
@@ -101,8 +121,7 @@ function Home() {
         <Container>
           <MainContent>
             <TopMainContent>
-              <MenuOption />
-              <UserName>Chukwudi</UserName>
+              {user && <UserName>{user}</UserName>}
               <Search />
             </TopMainContent>
             <Announcement />
@@ -123,6 +142,11 @@ function Home() {
           </MainContent>
           <Sidebar>
             <Order />
+            {!user && (
+              <StyledButtonGoogleLogo type="button" onClick={handleUserSignIn}>
+                <StyledImageGoogleLogo src={googleLogo} alt="Google Logo" />
+              </StyledButtonGoogleLogo>
+            )}
           </Sidebar>
         </Container>
       )}
