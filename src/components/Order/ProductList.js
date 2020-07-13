@@ -37,7 +37,7 @@ function ProductList({ peopleQuantity, products }) {
           <Image src={product.image} alt={product.name} />
           <ProductDetail>{product.quantity}</ProductDetail>
           <ProductDetail>{product.name}</ProductDetail>
-          <ProductDetail>${product.price}</ProductDetail>
+          <ProductDetail>${product.price * product.quantity}</ProductDetail>
         </ContanierItemOrder>
       ))}
       {products && (
