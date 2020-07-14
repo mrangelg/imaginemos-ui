@@ -16,6 +16,7 @@ const RowContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0.625rem 0;
+  align-items: end;
 `;
 
 const Link = styled.a`
@@ -47,8 +48,7 @@ function Address() {
       </RowContainer>
       <RowContainer>
         <div>
-          <StyledClockIcon />
-          <span>35 min</span>
+          <StyledClockIcon /> <span>35 min</span>
         </div>
         <Link>Choose time</Link>
       </RowContainer>
